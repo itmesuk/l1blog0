@@ -19,8 +19,10 @@ class PostController extends Controller
 
         // ORM
         // $posts = Post::all();
-        $posts = Post::orderBy('id', 'desc')->get();
+        // $posts = Post::orderBy('id', 'desc')->get();
         // $posts = Post::where('user_id', 1)->get(); // where('user_id', '=', 1)
+        $posts = Post::orderBy('id', 'desc')->Paginate(5);
+        // $posts = Post::userid()->visitor()->Paginate(5);
 
         return view('posts.index', compact('posts'));
     }
@@ -56,7 +58,8 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $posts = Post::find($id);
+        return view('posts.show', compact('posts'));
     }
 
     /**

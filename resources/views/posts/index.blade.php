@@ -9,21 +9,33 @@
 @section('content')
     <div class="py-5 container">
         <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                @forelse ($posts as $post)
-                    <ul>
-                        <li>Title: <b>{{ $post->post_title }}</b> ผู้เขียน : {{ $post->user_id }}<br>
-                            Detail: {{ Str::limit($post->post_detail, 50) }} <br>
-                            <a href="{{ route('show', $post->id) }}" class="btn btn-info btn-sm">ดูรายละเอียด</a>
-                            <a href="{{ route('edit', $post->id) }}" class="btn btn-warning btn-sm">แก้ไข </a>
-                            <a href="{{ route('destroy', $post->id) }}" class="btn btn-danger btn-sm"
-                                onclick="return confirm('ยืนยันการลบหรือไม่')">ลบข้อมูล</a>
-                            <hr>
-                        </li>
-                    </ul>
-                @empty
-                    <span class="text-danger">ไม่พบข้อมูล</span>
-                @endforelse
+            <div class="col-lg-12 mx-auto">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">ลำดับ</th>
+                            <th scope="col">หัวข้อ</th>
+                            <th scope="col">รายละเอียด</th>
+                            <th scope="col">จัดการ</th>
+                        </tr>
+                    </thead>
+                    @foreach ($posts as $post)
+                        <tbody>
+                            <tr>
+                                <th scope="col">{{ $post->id }}</th>
+                                <td scope="col">{{ $post->post_title }}</td>
+                                <td scope="col" style="width: 50%">{{ Str::limit($post->post_detail, 100) }}</td>
+                                <td scope="col">
+                                    <a href="{{ route('show', $post->id) }}" class="btn btn-info btn-sm">ดูรายละเอียด</a>
+                                    <a href="{{ route('edit', $post->id) }}" class="btn btn-warning btn-sm">แก้ไขข้อมูล</a>
+                                    <a href="{{ route('destroy', $post->id) }}" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('ยืนยันการลบหรือไม่')">ลบข้อมูล</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    @endforeach
+                </table>
+                {{ $posts->links() }}
             </div>
         </div>
     </div>

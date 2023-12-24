@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\StudentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +36,5 @@ Route::post('/categorystore', [CategoryController::class, 'store'])->name('categ
 Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit'); // ฟอร์มแก้ไข
 Route::post('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update'); // บันทึกแก้ไข
 Route::get('/category/detroy/{id}', [CategoryController::class, 'destroy'])->name('category.destroy'); // ลบข้อมูล
+
+Route::get('student/all', [StudentsController::class, 'index'])->name('student');

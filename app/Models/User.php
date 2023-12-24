@@ -7,10 +7,29 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    // getter
+    public function getStaffFullNameAttribute()
+    {
+        return $this->staffname . " " . $this->staffsurname;
+    }
+
+    // setter
+    public function setPasswordAttribute($password)
+    {
+        return $this->attributes['password'] = Hash::make($password);
+        ; // use Hash;
+    }
+
+    public function setStaffNameAtrribute($val)
+    {
+        return $this->attributes['staffname'] = strtolower($val);
+    }
 
     /**
      * The attributes that are mass assignable.
