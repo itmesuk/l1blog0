@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\StudentsController;
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,3 +39,8 @@ Route::post('/category/update/{id}', [CategoryController::class, 'update'])->nam
 Route::get('/category/detroy/{id}', [CategoryController::class, 'destroy'])->name('category.destroy'); // ลบข้อมูล
 
 Route::get('student/all', [StudentsController::class, 'index'])->name('student');
+
+Route::get('/order/{id}', function($id) {
+    $order = Order::find($id);
+    return $order->rProduct()->orderBy('name', 'desc')->get();
+});

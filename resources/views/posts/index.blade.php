@@ -35,7 +35,12 @@
                         </tbody>
                     @endforeach
                 </table>
-                {{ $posts->links() }}
+                @if ($posts)
+                    {{ $posts->links() }}
+                    {{-- {{ $page->linke() }} --}}
+                @else
+                    <span class="text-danger">ไม่มีข้อมูล</span>
+                @endif
             </div>
         </div>
     </div>
