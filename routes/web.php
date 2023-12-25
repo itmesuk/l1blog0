@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 // HomeController
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
-// PostController
+// PostController 
 Route::get('/posts', [PostController::class, 'index']); // แสดงข้อมูลทั้งหมด
 Route::get('/post/show/{id}', [PostController::class, 'show'])->name('show'); // แสดงรายละเอียดข้อมูล
 Route::get('/create', [PostController::class, 'create'])->name('create'); // ฟอร์มเพิ่มข้อมูล

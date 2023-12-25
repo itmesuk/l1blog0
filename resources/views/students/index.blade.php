@@ -6,5 +6,6 @@
     @foreach ($student->rPhone as $stdPhones)
         Phone: {{ $stdPhones->phone }} <br>
     @endforeach
-    <hr>
+          <hr>
 @endforeach
+ 

@@ -15,7 +15,7 @@ class StudentsController extends Controller
         $all_students = Student::with('rPhone')->get();
         return view('students.index', compact('all_students'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */
