@@ -42,16 +42,10 @@ Route::get('/category/detroy/{id}', [CategoryController::class, 'destroy'])->nam
 
 Route::get('student/all', [StudentsController::class, 'index'])->name('student');
 
-<<<<<<< HEAD
 
 Route::get('products', [ProductsController::class, 'index']);
 Route::get('product/create', [ProductsController::class, 'create'])->name('products.create');
 Route::post('product/store', [ProductsController::class, 'store'])->name('products.store');
-=======
-Route::get('products', [ProductsController::class, 'index'])->name('index');
-Route::get('products/create', [ProductsController::class, 'create'])->name('products.create');
-Route::post('products/store', [ProductsController::class, 'store'])->name('products.store');
->>>>>>> 573d081ebfd03645833ad272f04964de6cad2815
 
 Route::get('/order/{id}', function($id) {
     $order = Order::find($id);
