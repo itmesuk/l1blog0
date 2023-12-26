@@ -29,13 +29,10 @@
 
                     <a class="nav-link" href="{{ url('/category') }}">ประเภทบทความ</a>
 
-<<<<<<< HEAD
                     <a class="nav-link" href="{{ url('/products') }}">สินค้า</a>
 
-=======
-                    <a class="nav-link" href="{{url('/products')}}">สินค้า</a>
-                    
->>>>>>> 573d081ebfd03645833ad272f04964de6cad2815
+                    <a class="nav-link" href="{{ url('/products') }}">สินค้า</a>
+
                     <a class="nav-link" href="{{ url('/aboute') }}">เกี่ยวกับเรา</a>
 
                 </div>
