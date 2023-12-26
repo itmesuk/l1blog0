@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\StudentsController;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,12 +42,23 @@ Route::get('/category/detroy/{id}', [CategoryController::class, 'destroy'])->nam
 
 Route::get('student/all', [StudentsController::class, 'index'])->name('student');
 
+<<<<<<< HEAD
 
 Route::get('products', [ProductsController::class, 'index']);
 Route::get('product/create', [ProductsController::class, 'create'])->name('products.create');
 Route::post('product/store', [ProductsController::class, 'store'])->name('products.store');
+=======
+Route::get('products', [ProductsController::class, 'index'])->name('index');
+Route::get('products/create', [ProductsController::class, 'create'])->name('products.create');
+Route::post('products/store', [ProductsController::class, 'store'])->name('products.store');
+>>>>>>> 573d081ebfd03645833ad272f04964de6cad2815
 
 Route::get('/order/{id}', function($id) {
     $order = Order::find($id);
     return $order->rProduct()->orderBy('name', 'desc')->get();
+});
+
+Route::get('/order/product/{id}', function($id) {
+    $order = Product::find($id);
+    return $order->Order()->orderBy('id', 'desc')->get();
 });
