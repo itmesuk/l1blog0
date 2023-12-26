@@ -31,8 +31,6 @@
 
                     <a class="nav-link" href="{{ url('/products') }}">สินค้า</a>
 
-                    <a class="nav-link" href="{{ url('/products') }}">สินค้า</a>
-
                     <a class="nav-link" href="{{ url('/aboute') }}">เกี่ยวกับเรา</a>
 
                 </div>
