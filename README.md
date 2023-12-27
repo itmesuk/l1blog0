@@ -2,8 +2,8 @@
 <p>สร้างแอป CRUD</p>
 <!-- <p>mesuk team</p> -->
 
-สร้าง Fake Data 
-"php artisan migrate"
-"php artisan db:seeder"
+<p>สร้าง Fake Data</p> 
+<p>"php artisan migrate"</p>
+<p>"php artisan db:seeder"</p>
 
 
