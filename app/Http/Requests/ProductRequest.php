@@ -25,16 +25,17 @@ class ProductRequest extends FormRequest
             'name' => 'required',
             'price' => 'required',
             'stock' => 'required',
-            'image' => 'mimes:jpeg,jpg,png',
+            // 'image' => 'mimes:jpeg, jpg, png',
         ];
     }
 
-    public function messages() {
+    public function messages()
+    {
         return [
             'name.required' => 'กรุณาระบบชื่อสินค้า',
             'price.required' => 'กรุณากำหนดราคาสินค้า',
             'stock.required' => 'กรุณาระบบจำนวนสินค้าที่มีในสต๊อก',
-            'image.mins' => 'รองรับไฟล์รูปนามสกุล jpeg, jpg, png'
+            // 'image.mimes' => 'รองรับไฟล์รูปนามสกุล jpeg, jpg, png'
         ];
     }
 }
