@@ -1,9 +1,10 @@
 @extends('layouts.frontend')
-@section('titile', 'เพิ่มสินค้า')
+@section('title', 'เพิ่มสินค้า')
 @section('content')
     <br><br>
     <div class="row py-5 bg-light">
         <div class="col">
+           @include('includes.errors')
             {!! Form::open(['route' => 'products.store', 'file' => true, 'method' => 'POST']) !!}
             <div class="col-auto">
                 {!! Form::label('name', 'ชื่อสินค้า') !!}
@@ -32,15 +33,4 @@
             {!! Form::close() !!}
         </div>
     </div>
-@endsection
-{!! Form::textarea('detail', null, ['class' => 'form-control', 'row' => 3]) !!}
-</div>
-<div class="col-auto">
-    {!! Form::label('image', 'รูปสินค้า', ['for' => 'forFileSm']) !!}
-    {!! Form::file('image', null, ['class' => 'form-control', 'id' => 'forFileSm']) !!}
-</div><br>
-
-{!! Form::close() !!}
-</div>
-</div>
 @endsection
