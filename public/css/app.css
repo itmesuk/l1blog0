@@ -1,0 +1,11 @@
+.img-size {
+    border-radius: 3px;
+    transition: transform 0.25s ease;
+}
+
+.img-size:hover {
+    animation: scale(6.5);
+    -webkit-animation: scale(6.5) ;
+    transform:scale(6.5);
+}
+

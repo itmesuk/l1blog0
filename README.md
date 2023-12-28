@@ -4,6 +4,6 @@
 
 <p>สร้าง Fake Data</p> 
 <p>"php artisan migrate"</p>
-<p>"php artisan db:seeder"</p>
+<p>"php artisan db:seed"</p>
 
 
