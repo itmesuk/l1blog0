@@ -8,7 +8,7 @@
             {!! Form::open([
                 'route' => 'products.store',
                 'method' => 'POST',
-                'file' => true,
+                'files' => true,
             ]) !!}
             <div class="col-auto">
                 {!! Form::label('name', 'ชื่อสินค้า') !!}
