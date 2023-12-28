@@ -46,6 +46,10 @@ Route::get('student/all', [StudentsController::class, 'index'])->name('student')
 Route::get('/products', [ProductsController::class, 'index']);
 Route::get('/product/create', [ProductsController::class, 'create'])->name('products.create');
 Route::post('/product/store', [ProductsController::class, 'store'])->name('products.store');
+Route::get('/products/edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
+Route::post('/products/update/{id}', [ProductsController::class, 'update'])->name('produts.update');
+Route::get('/products/destroy/{id}', [ProductsController::class, 'destroy'])->name('products.destroy');
+
 
 Route::get('/order/{id}', function ($id) {
     $order = Order::find($id);

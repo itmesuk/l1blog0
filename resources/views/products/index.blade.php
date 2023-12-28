@@ -18,15 +18,17 @@
                         <tbody>
                             <tr>
                                 <td scope="col">{{ $product->id }}</td>
-                                <td scope="col"><img src="{{ asset($product->image) }}" style="width:50px" /></td>
+                                <td scope="col">
+                                    <img src="{{ asset('uploads/resize/' . $product->image) }}" style="width:50px" />
+                                </td>
                                 <td scope="col">{{ $product->name }}</td>
                                 <td scope="col" style="width:50%">{{ $product->price }}</td>
-                                {{-- <td scope="col">
+                                <td scope="col">
                                     <a href="{{ route('products.edit', $product->id) }}"
                                         class="btn btn-warning btn-sm">แก้ไข</a>
                                     <a href="{{ route('products.destroy', $product->id) }}" class="btn btn-danger btn-sm"
                                         onclick="return confirm('ยืนยันการลบหรือไม่')">ลบ</a>
-                                </td> --}}
+                                </td>
                             </tr>
                         </tbody>
                     @endforeach

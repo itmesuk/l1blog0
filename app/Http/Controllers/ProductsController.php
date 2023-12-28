@@ -13,6 +13,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Product::Paginate(6);
+        // dd($products);
         return view('products.index', compact('products'));
     }
 
@@ -26,12 +27,12 @@ class ProductsController extends Controller
         $product = new Product();
 
         if ($request->has('image')) {
-            // $rename = time() . '.' . $request->file('image')->getClientOriginalExtension();
-            // $request->file('image')->move('uploads/product/', $rename);
-            // Image::make(('uploads/product/' . $rename))->resize(450, 450)->save(('uploads/resize/' . $rename));
-            // $product->image = $rename;
+            $rename = time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $request->file('image')->move('uploads/product/', $rename);
+            Image::make(('uploads/product/' . $rename))->resize(450, 450)->save(('uploads/resize/' . $rename));
+            $product->image = $rename;
 
-            dd($request->file('image')->getClientOriginalExtension());
+            // dd($rename);
         } else {
             $product->image = "https://via.placeholder.com/450x450.png";
         }
@@ -40,8 +41,8 @@ class ProductsController extends Controller
         $product->detail = $request->detail;
         $product->price = $request->price;
         $product->stock = $request->stock;
-        // $product->save();
-        dd($product->image);
+        $product->save();
+        // dd($product->image);
         return redirect('/products');
     }
 }

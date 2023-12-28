@@ -9,6 +9,7 @@
                 'route' => 'products.store',
                 'method' => 'POST',
                 'files' => true,
+                'enctype' => 'multipart/form-data'
             ]) !!}
             <div class="col-auto">
                 {!! Form::label('name', 'ชื่อสินค้า') !!}

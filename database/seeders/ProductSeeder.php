@@ -22,7 +22,7 @@ class ProductSeeder extends Seeder
             DB::table('products')->insert([
                 'name' => $faker->city,
                 'detail' => $faker->paragraph($nb = 2),
-                'price' => $faker->numberBetween($min = 500, $max = 8000),
+                'price' => $faker->numberBetween($min = 500, $max = 9999999),
                 'stock' => $faker->numberBetween($min = 100, $max = 1000)
             ]);
         }
