@@ -4,7 +4,7 @@
     <div class="py-5 container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col 8 mx-auto">
-                <form action="{{ route('posts.update', $posts->id) }}" method="POST">
+                <form action="{{ route('update', $posts->id) }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="" class="form-label">แก้ไขหัวข้อ</label>

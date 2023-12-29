@@ -8,9 +8,9 @@
     <section class="py-5 container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                หัวข้อ : {{ $posts->post_title }}
+                หัวข้อ : {{ $posts->post_title ?? 'ข้อมูลนี้ถูกลบต้องกู้ข้อมูลจึงจะอ่านได้' }}
                 <hr>
-                {{ $posts->post_detail }}
+                {{ $posts->post_detail ?? 'ข้อมูลนี้ถูกลบต้องกู้ข้อมูลจึงจะอ่านได้' }}
             </div>
         </div>
     </section>

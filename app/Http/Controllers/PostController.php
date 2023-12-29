@@ -116,7 +116,6 @@ class PostController extends Controller
     public function trashed()
     {
         $posts = Post::onlyTrashed()->lastest()->get();
-        dd($posts);
         return redirect('/posts');
     }
 

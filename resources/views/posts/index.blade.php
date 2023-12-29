@@ -36,18 +36,18 @@
                                     <td scope="col">{{ $post->post_title }}</td>
                                     <td scope="col" style="width: 50%">{{ Str::limit($post->post_detail, 100) }}</td>
                                     <td scope="col">
-                                        <a href="{{ route('posts.show', $post->id) }}"
+                                        <a href="{{ route('show', $post->id) }}"
                                             class="btn btn-info btn-sm">ดูรายละเอียด</a>
-                                        <a href="{{ route('posts.edit', $post->id) }}"
+                                        <a href="{{ route('edit', $post->id) }}"
                                             class="btn btn-warning btn-sm">แก้ไขข้อมูล</a>
                                         {{-- <a href="{{ route('destroy', $post->id) }}" class="btn btn-danger btn-sm"
-                                            onclick="return confirm('ยืนยันการลบหรือไม่')">ลบข้อมูล</a> --}}
+                                            onclick="return confirm('ยืนยันการลบหรือไม่')">ลบข้อมูล</a> --}}|
 
                                         @if (request()->has('trashed'))
                                             <a href="{{ route('posts.restore', $post->id) }}"
                                                 class="btn btn-success btn-sm">กู้คืน</a>
                                         @else
-                                            <a href="{{ route('posts.destroy', $post->id) }}" class="btn btn-danger btn-sm"
+                                            <a href="{{ route('destroy', $post->id) }}" class="btn btn-danger btn-sm"
                                                 onclick="return confirm('ยืนยันการลบหรือไม่')">ลบ</a>
                                         @endif
                                     </td>
