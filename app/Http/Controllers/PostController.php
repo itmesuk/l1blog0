@@ -11,7 +11,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         // $posts = [];
         // $posts = Post::orderBy('id', 'desc')->get();
@@ -21,8 +21,16 @@ class PostController extends Controller
         // $posts = Post::all();
         // $posts = Post::orderBy('id', 'desc')->get();
         // $posts = Post::where('user_id', 1)->get(); // where('user_id', '=', 1)
-        $posts = Post::orderBy('id', 'desc')->Paginate(5);
+        // $posts = Post::orderBy('id', 'desc')->Paginate(5);
         // $posts = Post::userid()->visitor()->Paginate(5);
+
+        // dd($request->has('trashed'));
+        if ($request->has('trashed')) {
+            $posts = Post::onlyTrashed()->Paginate(10);
+        } else {
+            $posts = Post::Paginate(10);
+        }
+
 
         return view('posts.index', compact('posts'));
     }
@@ -100,7 +108,28 @@ class PostController extends Controller
         // $post = DB::delete('delete from posts where id = ?', [$id]);
 
         // ORM
-        $post = Post::find($id)->delete();
+        // $post = Post::find($id)->delete();
+        Post::where('id', $id)->delete();
         return redirect('/posts');
     }
+
+    public function trashed()
+    {
+        $posts = Post::onlyTrashed()->lastest()->get();
+        dd($posts);
+        return redirect('/posts');
+    }
+
+    public function restore($id)
+    {
+        Post::where('id', $id)->restore();
+        return redirect('/posts');
+    }
+
+    public function restoreAll()
+    {
+        Post::onlyTrashed()->restore();
+        return redirect('/posts');
+    }
+
 }

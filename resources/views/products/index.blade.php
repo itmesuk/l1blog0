@@ -5,14 +5,14 @@
     <section class="py-5 container">
         <div class="row py-lg-5">
             <div class="col-lg-12 mx-auto">
-                <table class="table table-hover">
+                <table class="table table-hover text-center">
                     <thead>
                         <tr>
                             <th scope="col">ลำดับ</th>
                             <th scope="col">ภาพสินค้า</th>
                             <th scope="col">ชื่อสินค้า</th>
                             <th scope="col">ราคา</th>
-                            <th scope="col">จัดการ</th>
+                            <th scope="col" colspan="2">จัดการ</th>
                         </tr>
                     </thead>
                     @foreach ($products as $product)
@@ -20,7 +20,8 @@
                             <tr>
                                 <td scope="col">{{ $product->id }}</td>
                                 <td scope="col">
-                                    <img src="{{ asset('uploads/resize/' . $product->image) }}" style="width:50px" class="img-size" />
+                                    <img src="{{ asset('uploads/resize/' . $product->image) }}" style="width:50px"
+                                        class="img-size" />
                                 </td>
                                 <td scope="col">{{ $product->name }}</td>
                                 <td scope="col" style="width:50%">{{ $product->price }}</td>
@@ -36,7 +37,8 @@
                                         'method' => 'DELETE',
                                     ]) !!}
                                     {!! Form::submit('ลบข้อมูล', [
-                                        'class' => 'btn btn-danger btn-sm', 'onclick' => "return confirm('ยืนยันการลบหรือไม่')"
+                                        'class' => 'btn btn-danger btn-sm',
+                                        'onclick' => "return confirm('ยืนยันการลบหรือไม่')",
                                     ]) !!}
                                     {!! Form::close() !!}
                                 </td>
