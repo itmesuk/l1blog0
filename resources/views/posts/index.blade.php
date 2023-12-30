@@ -38,10 +38,12 @@
                                     <td scope="col">
                                         <a href="{{ route('show', $post->id) }}"
                                             class="btn btn-info btn-sm">ดูรายละเอียด</a>
-                                        <a href="{{ route('edit', $post->id) }}"
-                                            class="btn btn-warning btn-sm">แก้ไขข้อมูล</a>
-                                        {{-- <a href="{{ route('destroy', $post->id) }}" class="btn btn-danger btn-sm"
+                                        @if (!request()->has('trashed'))
+                                            <a href="{{ route('edit', $post->id) ?? '' }}"
+                                                class="btn btn-warning btn-sm">แก้ไขข้อมูล</a>
+                                            {{-- <a href="{{ route('destroy', $post->id) }}" class="btn btn-danger btn-sm"
                                             onclick="return confirm('ยืนยันการลบหรือไม่')">ลบข้อมูล</a> --}}|
+                                        @endif
 
                                         @if (request()->has('trashed'))
                                             <a href="{{ route('posts.restore', $post->id) }}"
