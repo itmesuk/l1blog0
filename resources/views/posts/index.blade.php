@@ -36,9 +36,9 @@
                                     <td scope="col">{{ $post->post_title }}</td>
                                     <td scope="col" style="width: 50%">{{ Str::limit($post->post_detail, 100) }}</td>
                                     <td scope="col">
-                                        <a href="{{ route('show', $post->id) }}"
-                                            class="btn btn-info btn-sm">ดูรายละเอียด</a>
                                         @if (!request()->has('trashed'))
+                                            <a href="{{ route('show', $post->id) }}"
+                                                class="btn btn-info btn-sm">ดูรายละเอียด</a>
                                             <a href="{{ route('edit', $post->id) ?? '' }}"
                                                 class="btn btn-warning btn-sm">แก้ไขข้อมูล</a>
                                             {{-- <a href="{{ route('destroy', $post->id) }}" class="btn btn-danger btn-sm"
