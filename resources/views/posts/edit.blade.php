@@ -8,11 +8,12 @@
                     @csrf
                     <div class="mb-3">
                         <label for="" class="form-label">แก้ไขหัวข้อ</label>
-                        <input type="text" name="post_title" class="form-control" value="{{ $posts->post_title }}">
+                        <input type="text" name="post_title" class="form-control"
+                            value="{{ $posts->post_title ?? 'ข้อมูลนี้ถูกลบ ต้องกู้ข้อมูลจึงจะแก้ไขได้' }}">
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">แก้ไขรายละเอียด</label>
-                        <textarea name="post_detail" cols="30" rows="10" class="form-control">{{ $posts->post_detail }}</textarea>
+                        <textarea name="post_detail" cols="30" rows="10" class="form-control">{{ $posts->post_detail ?? 'ข้อมูลนี้ถูกลบ ต้องกู้ข้อมูลจึงจะแก้ไขได้' }}</textarea>
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-warning">แก้ไขข้อมูล</button>
@@ -22,3 +23,8 @@
         </div>
     </div>
 @endsection
+
+
+หัวข้อ : {{ $posts->post_title ?? 'ข้อมูลนี้ถูกลบต้องกู้ข้อมูลจึงจะอ่านได้' }}
+<hr>
+{{ $posts->post_detail ?? 'ข้อมูลนี้ถูกลบต้องกู้ข้อมูลจึงจะอ่านได้' }}

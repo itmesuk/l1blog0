@@ -16,7 +16,7 @@
                         <a href="{{ route('posts.index') }}" class="btn btn-info">ดูบทความทั้งหมด</a>
                         <a href="{{ route('posts.restoreAll') }}" class="btn btn-success">กู้คืนทั้งหมด</a>
                     @else
-                        <a href="{{ route('posts.index', ['trashed' => 'post']) }}" class="btn btn-primary">บทความที่ถูกลบ</a>
+                        <a href="{{ route('posts.index', ['trashed' => 'post']) }}" class="btn btn-danger">บทความที่ถูกลบ</a>
                     @endif
                 </div>
                 @if ($posts)
