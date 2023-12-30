@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\StudentsController;
 use App\Models\Order;
+use App\Models\Post;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
@@ -65,4 +66,10 @@ Route::get('/order/{id}', function ($id) {
 Route::get('/order/product/{id}', function ($id) {
     $order = Product::find($id);
     return $order->Order()->orderBy('id', 'desc')->get();
+});
+
+// Api  
+Route::get('/api/posts', function () {
+    $postApi = Post::all();
+    return $postApi;
 });
