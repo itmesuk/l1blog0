@@ -11,7 +11,6 @@
                             <th scope="col">ลำดับ</th>
                             <th scope="col">ภาพสินค้า</th>
                             <th scope="col">ชื่อสินค้า</th>
-                            <th scope="col">รายละเอียด</th>
                             <th scope="col">ราคา</th>
                             {{-- <th scope="col">จัดการ</th> --}}
                             <th scope="col" colspan="2">จัดการ</th>
@@ -26,16 +25,16 @@
                                         class="img-size" />
                                 </td>
                                 <td scope="col">{{ $product->name }}</td>
-                                <td scope="col" style="width:50%">{{ $product->detail }}</td>
-                                <td scope="col">{{ $product->price }}</td>
+                                <td scope="col" style="width:20%">{{ number_format($product->price, 2) }} ฿</td>
                                 <td scope="col">
+                                    <a href="" class="btn btn-info btn-sm">ดูรายละเอียด</a>
                                     <a href="{{ route('products.edit', $product->id) }}"
                                         class="btn btn-warning btn-sm">แก้ไข</a>
-                                    {{-- <a href="{{ route('products.destroy', $product->id) }}" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('ยืนยันการลบหรือไม่')">ลบ</a> --}}
-                                </td>
-                                <td scope="col">
-                                    {!! Form::open([
+                                    <a href="{{ route('products.destroy', $product->id) }}" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('ยืนยันการลบหรือไม่')">ลบ</a>
+
+                                    {{-- Destroy Form --}}
+                                    {{-- {!! Form::open([
                                         'route' => ['products.destroy', $product->id],
                                         'method' => 'DELETE',
                                     ]) !!}
@@ -43,7 +42,9 @@
                                         'class' => 'btn btn-danger btn-sm',
                                         'onclick' => "return confirm('ยืนยันการลบหรือไม่')",
                                     ]) !!}
-                                    {!! Form::close() !!}
+                                    {!! Form::close() !!} --}}
+
+
                                 </td>
                             </tr>
                         </tbody>
