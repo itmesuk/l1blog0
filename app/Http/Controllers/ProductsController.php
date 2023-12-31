@@ -21,7 +21,7 @@ class ProductsController extends Controller
 
     public function create()
     {
-        return view('product.create');
+        return view('products.create');
     }
 
     public function store(ProductRequest $request)
@@ -82,12 +82,13 @@ class ProductsController extends Controller
         return redirect('/products');
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $product = Product::findOrFail($id);
 
-        if($product->image != NULL) {
+        if ($product->image != NULL) {
             File::delete('uploads/product/' . $product->image);
-            File::delete('uploads/resize/' . $product->image );
+            File::delete('uploads/resize/' . $product->image);
         }
 
         $product->delete();

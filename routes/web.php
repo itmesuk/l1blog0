@@ -58,7 +58,6 @@ Route::get('/product/edit/{id}', [ProductsController::class, 'edit'])->name('pro
 Route::post('/product/update/{id}', [ProductsController::class, 'update'])->name('products.update');
 Route::delete('/product/destroy/{id}', [ProductsController::class, 'destroy'])->name('products.destroy');
 
-
 // OrderController
 Route::get('/order/{id}', function ($id) {
     $order = Order::find($id);

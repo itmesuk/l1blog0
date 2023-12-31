@@ -11,7 +11,9 @@
                             <th scope="col">ลำดับ</th>
                             <th scope="col">ภาพสินค้า</th>
                             <th scope="col">ชื่อสินค้า</th>
+                            <th scope="col">รายละเอียด</th>
                             <th scope="col">ราคา</th>
+                            {{-- <th scope="col">จัดการ</th> --}}
                             <th scope="col" colspan="2">จัดการ</th>
                         </tr>
                     </thead>
@@ -24,7 +26,8 @@
                                         class="img-size" />
                                 </td>
                                 <td scope="col">{{ $product->name }}</td>
-                                <td scope="col" style="width:50%">{{ $product->price }}</td>
+                                <td scope="col" style="width:50%">{{ $product->detail }}</td>
+                                <td scope="col">{{ $product->price }}</td>
                                 <td scope="col">
                                     <a href="{{ route('products.edit', $product->id) }}"
                                         class="btn btn-warning btn-sm">แก้ไข</a>
