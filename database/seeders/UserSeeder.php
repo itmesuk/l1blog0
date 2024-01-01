@@ -20,11 +20,21 @@ class UserSeeder extends Seeder
         // $user->password = Hash::make('password');
         // $user->save();
 
-        // $user = new User();
-        // $user->name = 'user1';
-        // $user->email = 'user1@email.com';
-        // $user->password = Hash::make('password');
-        // $user->save();
+        $user = new User();
+        $user->name = 'user1';
+        $user->email = 'user1@email.com';
+        $user->password = Hash::make('password');
+        $user->role = 1;
+        $user->status = 1;
+        $user->save();
+
+        $user = new User();
+        $user->name = 'user2';
+        $user->email = 'user2@email.com';
+        $user->password = Hash::make('password');
+        $user->role = 0;
+        $user->status = 1;
+        $user->save();
 
         User::factory()->count(20)->create();
     }

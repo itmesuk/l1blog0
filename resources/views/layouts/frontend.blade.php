@@ -9,7 +9,10 @@
     <title>App Name - @yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    {{-- Alert Toastre --}}
+    {{-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"> --}}
+
     @yield('css_before')
     <link rel="stylesheet" href="css/app.css">
 </head>
@@ -47,13 +50,34 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-@if (Session::has('success'))
+{{-- Alert Toastre --}}
+{{-- <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> --}}
+{{-- @if (Session::has('success'))
     <script>
         toastr.success(('{{ Session::get('success') }}'))
     </script>
-@endif
+@endif --}}
+
+{{-- Alert Sweet --}}
+{{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if (Session::has('success'))
+    <script>
+        Swal.fire({
+            title: "แจ้งเตือนทำรายการ",
+            text: "บันทึกข้อมูลเรียบร้อย",
+            icon: "success"
+        });
+    </script>
+@elseif (Session::has('error'))
+    <script>
+        Swal.fire({
+            title: "แจ้งเตือนทำรายการ",
+            text: "ลบข้อมูลเรียบร้อย",
+            icon: "error"
+        });
+    </script>
+@endif --}}
 
 @yield('js_before')
 

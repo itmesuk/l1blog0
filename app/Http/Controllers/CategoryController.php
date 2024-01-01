@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 class CategoryController extends Controller
 {
@@ -35,7 +36,10 @@ class CategoryController extends Controller
         $category->category_name = $request->category_name;
         $category->save();
 
-        return redirect()->back();
+        Session::flash('success', "บันทึกข้อมูลเรียบร้อยแล้ว");
+
+        // return redirect()->back();
+        return redirect('/category');
 
     }
 
@@ -69,6 +73,8 @@ class CategoryController extends Controller
 
         // ORM
         $category = Category::find($id)->delete();
+
+        Session::flash('error', "บันทึกข้อมูลเรียบร้อยแล้ว");
 
         return redirect('/category');
     }
