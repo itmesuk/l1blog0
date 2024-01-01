@@ -23,13 +23,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 // HomeController
+Auth::routes();
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // PostController 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index'); // แสดงข้อมูลทั้งหมด
 Route::get('/post/show/{id}', [PostController::class, 'show'])->name('show'); // แสดงรายละเอียดข้อมูล
-Route::get('create', [PostController::class, 'create'])->name('create'); // ฟอร์มเพิ่มข้อมูล
-Route::post('store', [PostController::class, 'store'])->name('tore'); // บันทึกข้อมูล
+Route::get('posts/create', [PostController::class, 'create'])->name('create'); // ฟอร์มเพิ่มข้อมูล
+Route::post('store', [PostController::class, 'store'])->name('store'); // บันทึกข้อมูล
 Route::get('post/edit/{id}', [PostController::class, 'edit'])->name('edit'); // ฟอร์มแก้ไข
 Route::post('post/update/{id}', [PostController::class, 'update'])->name('update'); // บักทึกการแกไข
 Route::get('post/destroy/{id}', [PostController::class, 'destroy'])->name('destroy'); // ลบข้อมูล
@@ -77,5 +79,3 @@ Route::get('/api/posts', function () {
 // Send Email
 Route::get('sendemail', [EmailController::class, 'send_email']);
 
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

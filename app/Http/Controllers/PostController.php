@@ -28,6 +28,7 @@ class PostController extends Controller
         if ($request->has('trashed')) {
             $posts = Post::onlyTrashed()->Paginate(10);
         } else {
+            // $posts = Post::onlyTrashed()->Paginate(10);
             $posts = Post::Paginate(10);
         }
 
@@ -58,7 +59,8 @@ class PostController extends Controller
         $post->post_detail = $request->post_detail;
         $post->save();
 
-        return view('posts.index');
+        // return view('posts.index');
+        return redirect('/posts');
     }
 
     /**
