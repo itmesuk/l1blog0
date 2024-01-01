@@ -20,11 +20,11 @@ class User extends Authenticatable
     }
 
     // setter
-    public function setPasswordAttribute($password)
-    {
-        return $this->attributes['password'] = Hash::make($password);
-        ; // use Hash;
-    }
+    // public function setPasswordAttribute($password)
+    // {
+    //     return $this->attributes['password'] = Hash::make($password);
+    //     ; // use Hash;
+    // }
 
     public function setStaffNameAtrribute($val)
     {
@@ -59,6 +59,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        // 'password' => 'hashed',
     ];
 }

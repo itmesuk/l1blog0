@@ -24,6 +24,7 @@ class UserSeeder extends Seeder
         $user->name = 'user1';
         $user->email = 'user1@email.com';
         $user->password = Hash::make('password');
+        // $user->password = 'password';
         $user->role = 1;
         $user->status = 1;
         $user->save();
@@ -36,6 +37,6 @@ class UserSeeder extends Seeder
         $user->status = 1;
         $user->save();
 
-        User::factory()->count(20)->create();
+        // User::factory()->count(10)->create();
     }
 }

@@ -1,13 +1,9 @@
 @extends('layouts.frontend')
-
 @section('title', 'บทความ')
-
 @section('css_before')
 
-@endsection
-
 @section('content')
-    <div class="py-5 container">
+    <div class="container">
         <div class="row py-lg-5">
             <div class="col-lg-12 mx-auto">
                 <br>

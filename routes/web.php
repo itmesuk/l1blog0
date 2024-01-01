@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // HomeController
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'index']);
 
 // PostController 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index'); // แสดงข้อมูลทั้งหมด
@@ -76,3 +76,6 @@ Route::get('/api/posts', function () {
 
 // Send Email
 Route::get('sendemail', [EmailController::class, 'send_email']);
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
