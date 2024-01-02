@@ -21,13 +21,13 @@
     <div class="b-example-divider"></div>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top" aria-label="Main navigation">
         <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">Logo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a href="{{ url('/') }}" class="nav-link link-dark px-2 active"
                             aria-current="page">หน้าหลัก</a></li>
@@ -39,7 +39,8 @@
                             </li>
                         @endif
                     @endauth
-                    <li class="nav-item"><a href="{{ route('roles.index') }}" class="nav-link link-dark px-2">จัดการบทบาท</a>
+                    <li class="nav-item"><a href="{{ route('roles.index') }}"
+                            class="nav-link link-dark px-2">จัดการบทบาท</a>
                     </li>
                     <li class="nav-item"><a href="{{ route('users.index') }}"
                             class="nav-link link-dark px-2">จัดการสมาชิก</a></li>
