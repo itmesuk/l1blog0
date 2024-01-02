@@ -156,6 +156,8 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
+        Spatie\Permission\PermissionServiceProvider::class,
+
             /*
              * Package Service Providers...
              */

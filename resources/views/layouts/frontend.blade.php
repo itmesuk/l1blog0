@@ -32,9 +32,17 @@
                     <li class="nav-item"><a href="{{ url('/') }}" class="nav-link link-dark px-2 active"
                             aria-current="page">หน้าหลัก</a></li>
                     <li class="nav-item"><a href="{{ url('/posts') }}" class="nav-link link-dark px-2">บทความ</a></li>
-                    <li class="nav-item"><a href="{{ url('/category') }}"
-                            class="nav-link link-dark px-2">ประเภทบทความ</a>
+                    @auth
+                        @if (Auth::user()->role === 1 || Auth::user()->role === 2)
+                            <li class="nav-item"><a href="{{ url('/category') }}"
+                                    class="nav-link link-dark px-2">ประเภทบทความ</a>
+                            </li>
+                        @endif
+                    @endauth
+                    <li class="nav-item"><a href="{{ route('roles.index') }}" class="nav-link link-dark px-2">จัดการบทบาท</a>
                     </li>
+                    <li class="nav-item"><a href="{{ route('users.index') }}"
+                            class="nav-link link-dark px-2">จัดการสมาชิก</a></li>
                     <li class="nav-item"><a href="{{ url('/products') }}" class="nav-link link-dark px-2">สินค้า</a>
                     </li>
                     <li class="nav-item"><a href="{{ url('/aboute') }}" class="nav-link link-dark px-2">เกี่ยวกับเรา</a>

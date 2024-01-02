@@ -28,8 +28,8 @@ class PostController extends Controller
         if ($request->has('trashed')) {
             $posts = Post::onlyTrashed()->Paginate(10);
         } else {
-            // $posts = Post::onlyTrashed()->Paginate(10);
-            $posts = Post::Paginate(10);
+            // $posts = Post::Paginate(10);
+            $posts = Post::orderBy('id', 'desc')->Paginate(10);
         }
 
 

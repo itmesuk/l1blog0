@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12 mx-auto">
                 <br>
-                @if ($posts)
+                @if (!$posts)
                     <div class="float-end">
                         @auth
                             @if (Auth::user()->role === 1)

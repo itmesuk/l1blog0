@@ -12,11 +12,19 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class ProductsController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:product-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:product-edit', ['only' => ['update']]);
+        $this->middleware('permission:product-delete', ['only', ['destroy']]);
+    }
+
     public function index()
     {
         $products = Product::Paginate(6);
         // dd($products);
-        return view('products.index', compact('products'));
+        return view('products.index', compact('products'))->with('1', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create()

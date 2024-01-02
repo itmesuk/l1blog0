@@ -10,6 +10,8 @@ use App\Models\Order;
 use App\Models\Post;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,3 +81,5 @@ Route::get('/api/posts', function () {
 // Send Email
 Route::get('sendemail', [EmailController::class, 'send_email']);
 
+Route::resource('users', UserController::class);
+Route::resource('roles', RoleController::class);
