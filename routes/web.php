@@ -25,8 +25,8 @@ use App\Http\Controllers\RoleController;
 */
 
 // HomeController
-Auth::routes();
 Route::get('/', [HomeController::class, 'index']);
+Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // PostController 

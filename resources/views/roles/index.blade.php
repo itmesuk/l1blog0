@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-    <div class="row">
+    <div class="row py-4">
         <div class="col-lg margin-tb">
             <div class="pull-left">
                 <h2>จัดการบทบาทหน้าที่</h2>
@@ -34,7 +34,10 @@
                     @endcan
                     @can('role-delete')
                         {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy', $role->id], 'style' => 'display:inline']) !!}
-                        {!! Form::submit('ลบ', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::submit('ลบ', [
+                            'class' => 'btn btn-danger btn-sm',
+                            'onclick' => "return confirm ('ยืนยันการลบหรือไม่')",
+                        ]) !!}
                         {!! Form::close() !!}
                     @endcan
                 </td>

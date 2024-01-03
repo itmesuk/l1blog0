@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-    <div class="row">
+    <div class="row py-4">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>จัดการสมาชิก</h2>
@@ -23,19 +23,19 @@
         </tr>
         @foreach ($data as $key => $user)
             <tr>
-                <td>{{ ++$i }}}</td>
+                <td>{{ ++$i }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
                     @if (!empty($user->getRoleNames()))
                         @foreach ($user->getRoleNames() as $v)
-                            <label class="badge success">{{ $v }}</label>
+                            <label class="badge text-bg-success">{{ $v }}</label>
                         @endforeach
                     @endif
                 </td>
                 <td>
                     <a href="{{ route('users.show', $user->id) }}" class="btn btn-info">ดู</a>
-                    <a href="{{ route('users.edit') }}" class="btn btn-primary">แก้ไข</a>
+                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">แก้ไข</a>
                     {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
                     {!! Form::submit('ลบ', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}

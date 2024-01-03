@@ -19,7 +19,7 @@
 
 <body>
     <div class="b-example-divider"></div>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top" aria-label="Main navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" aria-label="Main navigation">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">Logo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"

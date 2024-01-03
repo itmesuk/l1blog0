@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-    <div class="row">
+    <div class="row py-3">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>แสดง</h2>
@@ -23,7 +23,7 @@
                 @if (!empty($rolePermissions))
                     @foreach ($rolePermissions as $v)
                         <label class="label label-success">{{ $v->name }}</label>
-                    @endif
+                    @endforeach
                 @endif
             </div>
         </div>

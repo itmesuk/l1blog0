@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use DB;
-use Hash;
+use Hash; 
+use Illuminate\Support\Arr;
 
 class UserController extends Controller
 {
@@ -19,7 +20,7 @@ class UserController extends Controller
 
     public function create()
     {
-        $role = Role::pluck('name', 'name')->all();
+        $roles = Role::pluck('name', 'name')->all();
         return view('users.create', compact('roles'));
     }
 
@@ -28,7 +29,7 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:comfirm-password',
+            'password' => 'required|same:confirm-password',
             'roles' => 'required'
         ]);
 

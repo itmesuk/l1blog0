@@ -1,13 +1,13 @@
 @extends('layouts.frontend')
 @section('content')
-    <div class="row">
+    <div class="row py-4">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>เพิ่มสมาชิกใหม่</h2>
             </div>
             <div class="pull-right"><a href="{{ route('users.index') }}" class="btn btn-primary">กลับ</a></div>
         </div>
-        @if (count($erros) > 0)
+        @if (count($errors) > 0)
             <div class="alert alert-danger">
                 <strong>วุ้ววววว</strong> มีบางอย่างผิดพลาด <br><br>
                 <ul>
@@ -35,12 +35,18 @@
             </div>
         </div>
         <div class="col-sx-12 col-sm-12 col-md-12">
+            <div class="form-group"><strong>ยืนยันรหัสผ่าน: </strong>
+                {!! Form::password('confirm-password', ['placeholder' => 'Confirm Password', 'class' => 'form-control']) !!}
+            </div>
+        </div>
+        <div class="col-sx-12 col-sm-12 col-md-12">
             <div class="form-group"><strong>เลือกบทบาท</strong>
-                {!! Form::select('rolesp[]', $roles, [], ['class' => 'form-contrl', 'multiple']) !!}
+                {!! Form::select('roles[]', $roles, [], ['class' => 'form-control', 'multiple']) !!}
             </div>
         </div>
         <div class="col-sx-12 col-sm-12 col-md-12 text-center">
             <button stype="submit" class="btn btn-primary">บันทึก</button>
         </div>
     </div>
+    {!! Form::close() !!}
 @endsection

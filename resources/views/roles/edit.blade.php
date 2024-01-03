@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-    <div class="row">
+    <div class="row py-4">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>แก้ไขบทบาท</h2>
@@ -33,7 +33,7 @@
                 <strong>สิทธิ์การเข้าใช้งาน: </strong>
                 <br>
                 @foreach ($permission as $value)
-                    <label>{{ Form::checkbox('permission[]', $value->id, in_array('$value->id', $rolePermissions) ? true : false, ['class' => 'name']) }}
+                    <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, ['class' => 'name']) }}
                         {{ $value->name }}</label>
                     <br>
                 @endforeach
