@@ -72,12 +72,6 @@ Route::get('/order/product/{id}', function ($id) {
     return $order->Order()->orderBy('id', 'desc')->get();
 });
 
-// Api  
-Route::get('/api/posts', function () {
-    $postApi = Post::all();
-    return $postApi;
-});
-
 // Send Email
 Route::get('sendemail', [EmailController::class, 'send_email']);
 
