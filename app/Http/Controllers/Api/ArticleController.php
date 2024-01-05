@@ -36,7 +36,6 @@ class ArticleController extends Controller
             'content' => 'required',
             'nullable|image|mimes:jpeg,jpg,png,bmp,gif,svg|max:2048'
             // 'images' => 'nullable|image|mimes:jpeg,jpg,png,bmp,gif,svg|max:2048'
-            // 'dimensions:max_width=100,max_height=200'
         ]);
 
         $article = Article::create([

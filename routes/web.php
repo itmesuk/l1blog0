@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductsController;
@@ -75,5 +76,11 @@ Route::get('/order/product/{id}', function ($id) {
 // Send Email
 Route::get('sendemail', [EmailController::class, 'send_email']);
 
+// User
 Route::resource('users', UserController::class);
+// Roles User
 Route::resource('roles', RoleController::class);
+
+// API
+Route::get('getDataApi', [FrontendController::class, 'getDataApi']);
+
