@@ -14,7 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::lastest()->get();
+        $articles = Article::latest()->get();
         return ArticleResource::collection($articles);
     }
 
@@ -34,8 +34,9 @@ class ArticleController extends Controller
         $this->validate($request, [
             'title' => 'required|string|max:255',
             'content' => 'required',
+            'nullable|image|mimes:jpeg,jpg,png,bmp,gif,svg|max:2048'
             // 'images' => 'nullable|image|mimes:jpeg,jpg,png,bmp,gif,svg|max:2048'
-            'images' => 'required|mimes:jpeg,jpg,png,gif|max:2048'
+            // 'dimensions:max_width=100,max_height=200'
         ]);
 
         $article = Article::create([

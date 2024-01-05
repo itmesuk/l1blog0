@@ -12,7 +12,7 @@ class Article extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
-    protected $fileable = [
+    protected $fillable = [
         'title',
         'content'
     ];
