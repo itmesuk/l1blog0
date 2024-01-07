@@ -1,18 +1,19 @@
 <?php
-
+use App\Http\Controllers\LangController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\exportPDFController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 use App\Models\Order;
 use App\Models\Post;
 use App\Models\Product;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,8 @@ use App\Http\Controllers\RoleController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 
 // HomeController
 Route::get('/', [HomeController::class, 'index']);
@@ -83,4 +86,7 @@ Route::resource('roles', RoleController::class);
 
 // API
 Route::get('getDataApi', [FrontendController::class, 'getDataApi']);
+
+// TCPDF
+Route::get('exportPDF', [exportPDFController::class, 'exportPDF']);
 

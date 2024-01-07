@@ -30,23 +30,26 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a href="{{ url('/') }}" class="nav-link link-dark px-2 active"
-                            aria-current="page">หน้าหลัก</a></li>
-                    <li class="nav-item"><a href="{{ url('/posts') }}" class="nav-link link-dark px-2">บทความ</a></li>
+                            aria-current="page">{{ __('messages.HOME') }}</a></li>
+                    <li class="nav-item"><a href="{{ url('/posts') }}"
+                            class="nav-link link-dark px-2">{{ __('messages.ARTICLE') }}</a></li>
                     @auth
                         @if (Auth::user()->role === 1 || Auth::user()->role === 2)
                             <li class="nav-item"><a href="{{ url('/category') }}"
-                                    class="nav-link link-dark px-2">ประเภทบทความ</a>
+                                    class="nav-link link-dark px-2">{{ __('messages.CATEGORY') }}</a>
                             </li>
                         @endif
                     @endauth
                     <li class="nav-item"><a href="{{ route('roles.index') }}"
-                            class="nav-link link-dark px-2">จัดการบทบาท</a>
+                            class="nav-link link-dark px-2">{{ __('messages.ROLE-MANAGEMENT') }}</a>
                     </li>
                     <li class="nav-item"><a href="{{ route('users.index') }}"
-                            class="nav-link link-dark px-2">จัดการสมาชิก</a></li>
-                    <li class="nav-item"><a href="{{ url('/products') }}" class="nav-link link-dark px-2">สินค้า</a>
+                            class="nav-link link-dark px-2">{{ __('messages.USERS-MANAGEMENT') }}</a></li>
+                    <li class="nav-item"><a href="{{ url('/products') }}"
+                            class="nav-link link-dark px-2">{{ __('messages.PRODUCT') }}</a>
                     </li>
-                    <li class="nav-item"><a href="{{ url('/aboute') }}" class="nav-link link-dark px-2">เกี่ยวกับเรา</a>
+                    <li class="nav-item"><a href="{{ url('/aboute') }}"
+                            class="nav-link link-dark px-2">{{ __('messages.ABOUTE') }}</a>
                     </li>
                 </ul>
 
@@ -54,12 +57,14 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a href="{{ route('login') }}" class="nav-link link-dark px-2">เข้าสู่ระบบ</a>
+                                <a href="{{ route('login') }}"
+                                    class="nav-link link-dark px-2">{{ __('messages.LOGIN') }}</a>
                             </li>
                         @endif
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a href="{{ route('register') }}" class="nav-link link-dark px-2">ลงทะเบียน</a>
+                                <a href="{{ route('register') }}"
+                                    class="nav-link link-dark px-2">{{ __('messages.REGISTER') }}</a>
                             </li>
                         @endif
                     @else
@@ -75,6 +80,14 @@
                             </div>
                         </li>
                     @endguest
+                    <li>
+                        <select class="form-control changeLang">
+                            <option value="th" {{ session()->get('locale') == 'th' ? 'selected' : '' }}>ภาษาไทย
+                            </option>
+                            <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English
+                            </option>
+                        </select>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -115,6 +128,14 @@
         });
     </script>
 @endif --}}
+
+<script type="text/javascript">
+    var url = "{{ route('changeLang') }}";
+    $(".changeLang").change(function() {
+        window.location.href = url + "?lang=" + $(this).val();
+    });
+    console.log(url)
+</script>
 
 @yield('js_before')
 
