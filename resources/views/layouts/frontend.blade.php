@@ -12,9 +12,10 @@
 
     {{-- Alert Toastre --}}
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-
-    @yield('css_before')
     <link rel="stylesheet" href="css/app.css">
+
+    @livewireStyles
+    @yield('css_before')
 </head>
 
 <body>
@@ -82,9 +83,9 @@
                     @endguest
                     <li>
                         <select class="form-control changeLang">
-                            <option value="th" {{ session()->get('locale') == 'th' ? 'selected' : '' }}>ภาษาไทย
+                            <option value="th" {{ session()->get('locale') === 'th' ? 'selected' : '' }}>ภาษาไทย
                             </option>
-                            <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English
+                            <option value="en" {{ session()->get('locale') === 'en' ? 'selected' : '' }}>English
                             </option>
                         </select>
                     </li>
@@ -136,6 +137,8 @@
     });
     console.log(url)
 </script>
+
+@livewireScripts
 
 @yield('js_before')
 
